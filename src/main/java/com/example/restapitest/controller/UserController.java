@@ -4,6 +4,7 @@ import com.example.restapitest.pojo.dto.UserRequestDTO;
 import com.example.restapitest.pojo.dto.UserResponseDTO;
 import com.example.restapitest.pojo.dto.UserResponseDTO.*;
 import com.example.restapitest.service.UserService;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,8 +25,8 @@ public class UserController {
     public ResponseEntity<UserDTO> addUser(@RequestBody UserRequestDTO userRequestDTO) {
         try {
             UserDTO requestDTO = userRequestDTO.getProvider();
-            String res = userService.addUser(requestDTO);
-            if (res.equals("success")) {
+            Boolean res = userService.addUser(requestDTO);
+            if (res) {
                 UserDTO responseDTO = new UserDTO();
                 responseDTO.setFirstName(userRequestDTO.getProvider().getFirstName());
                 responseDTO.setLastName(userRequestDTO.getProvider().getLastName());

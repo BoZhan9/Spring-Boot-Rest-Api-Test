@@ -7,7 +7,7 @@ import com.example.restapitest.pojo.entity.User;
 
 public interface UserService {
 
-    String addUser(UserDTO user);
+    Boolean addUser(UserDTO user);
 
     UserResponseDTO getAllUsers();
 

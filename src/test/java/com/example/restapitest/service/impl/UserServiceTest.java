@@ -14,22 +14,22 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MockMvcBuilder;
+
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import java.util.HashMap;
-import java.util.List;
+
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.when;
-import static org.mockito.Mockito.verify;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(MockitoExtension.class)
@@ -52,7 +52,7 @@ class UserServiceTest {
     @Test
     void addUser() throws Exception {
         UserDTO testDTO = new UserDTO("Kobe", "Bryant", "Bean", "1978-08-23");
-        when(userService.addUser(testDTO)).thenReturn("success");
+        when(userService.addUser(testDTO)).thenReturn(true);
         Map<String, UserDTO> resForm = new HashMap<>();
         resForm.put("provider", testDTO);
         MvcResult mvcRes = mockMvc.perform(MockMvcRequestBuilders.post("/userinfo")

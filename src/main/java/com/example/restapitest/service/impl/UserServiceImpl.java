@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public String addUser(UserDTO user) {
+    public Boolean addUser(UserDTO user) {
         User newUser = new User();
         newUser.setFirstName(user.getFirstName());
         newUser.setLastName(user.getLastName());
@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService {
         newUser.setDob(user.getDob());
         System.out.println(newUser);
         userRepository.saveAndFlush(newUser);
-        return "success";
+        return true;
     }
 
     @Override
